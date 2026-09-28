@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/dummy_animals.dart';
 import 'detail_page.dart';
+import 'login_page.dart'; // Tambahkan import ini untuk bisa kembali ke halaman login
 
 class HomePage extends StatelessWidget {
   @override
@@ -11,6 +12,18 @@ class HomePage extends StatelessWidget {
         title: Text('Animals List'),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              // Navigasi kembali ke halaman Login dan hapus riwayat halaman sebelumnya
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPage()),
+              );
+            },
+          ),
+        ],
       ),
       body: GridView.builder(
         padding: EdgeInsets.all(12),
